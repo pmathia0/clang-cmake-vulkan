@@ -12,13 +12,13 @@ RUN apt install -y libglfw3-dev
 RUN apt install -y git
 RUN apt install -y python
 
-RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.1.121.1/linux/vulkansdk-linux-x86_64-1.1.121.1.tar.gz?u=true && \
+RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.1.126.0/linux/vulkansdk-linux-x86_64-1.1.126.0.tar.gz?u=true && \
     mkdir VulkanSDK && \
     cd VulkanSDK && \
     tar xvf /VulkanSDK.tar.gz
 
-RUN	cd VulkanSDK/1.1.121.1
-ENV	VULKAN_SDK="/VulkanSDK/1.1.121.1/x86_64:${VULKAN_SDK}"
+RUN	cd VulkanSDK/1.1.126.0
+ENV	VULKAN_SDK="/VulkanSDK/1.1.126.0/x86_64:${VULKAN_SDK}"
 ENV	PATH="${VULKAN_SDK}/bin:${PATH}"
 ENV	LD_LIBRARY_PATH="${VULKAN_SDK}/lib:${LD_LIBRARY_PATH}"
 ENV	VK_LAYER_PATH="${VULKAN_SDK}/etc/explicit_layer.d:${VK_LAYER_PATH}"
