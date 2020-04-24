@@ -1,4 +1,4 @@
-FROM amd64/ubuntu:19.10
+FROM amd64/ubuntu:20.04
 
 RUN apt update
 RUN apt install -y libglm-dev libxcb-dri3-0 libxcb-present0
@@ -20,7 +20,6 @@ RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.2.135.0/linux
 
 RUN	cd VulkanSDK/1.2.135.0
 ENV	VULKAN_SDK="/VulkanSDK/1.2.135.0/x86_64:${VULKAN_SDK}"
-
 ENV	LD_LIBRARY_PATH="${VULKAN_SDK}/lib:${LD_LIBRARY_PATH}"
 ENV	VK_LAYER_PATH="${VULKAN_SDK}/etc/explicit_layer.d:${VK_LAYER_PATH}"
 
