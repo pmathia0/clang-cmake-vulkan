@@ -26,7 +26,7 @@ ENV	VK_LAYER_PATH="${VULKAN_SDK}/etc/explicit_layer.d:${VK_LAYER_PATH}"
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
-    RUST_VERSION=1.46.0
+    RUST_VERSION=1.47.0
 
 RUN set -eux; \
     apt-get install -y --no-install-recommends \
