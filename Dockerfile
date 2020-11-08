@@ -1,4 +1,4 @@
-FROM amd64/ubuntu:20.04
+FROM amd64/ubuntu:20.10
 
 RUN apt update
 RUN apt install -y libglm-dev libxcb-dri3-0 libxcb-present0
@@ -11,7 +11,7 @@ RUN apt install -y python
 RUN apt install -y wget
 RUN apt install -y cmake
 RUN apt install -y gcc g++
-RUN apt install -y clang-tools-9
+RUN apt install -y clang-tools-10
 
 RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.2.154.0/linux/vulkansdk-linux-x86_64-1.2.154.0.tar.gz?u=true && \
      mkdir VulkanSDK && \
@@ -56,5 +56,5 @@ RUN set -eux; \
         ; \
     rm -rf /var/lib/apt/lists/*;
 
-RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-9 100
-RUN update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-9 100
+RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-10 100
+RUN update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-10 100
