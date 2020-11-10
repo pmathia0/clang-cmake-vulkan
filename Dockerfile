@@ -19,9 +19,10 @@ RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.2.154.0/linux
      tar xvf /VulkanSDK.tar.gz
 
 RUN	cd VulkanSDK/1.2.154.0
-ENV	VULKAN_SDK="/VulkanSDK/1.2.154.0/x86_64:${VULKAN_SDK}"
+ENV	VULKAN_SDK="/VulkanSDK/1.2.154.0/x86_64${VULKAN_SDK}"
 ENV	LD_LIBRARY_PATH="${VULKAN_SDK}/lib:${LD_LIBRARY_PATH}"
 ENV	VK_LAYER_PATH="${VULKAN_SDK}/etc/explicit_layer.d:${VK_LAYER_PATH}"
+ENV	PATH="${VULKAN_SDK}/bin:${PATH}"
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
