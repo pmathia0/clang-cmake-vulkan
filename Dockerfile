@@ -13,13 +13,13 @@ RUN apt install -y cmake
 RUN apt install -y gcc g++
 RUN apt install -y clang-tools-10
 
-RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.2.162.0/linux/vulkansdk-linux-x86_64-1.2.162.0.tar.gz?u=true && \
+RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.2.162.1/linux/vulkansdk-linux-x86_64-1.2.162.1.tar.gz?u=true && \
      mkdir VulkanSDK && \
      cd VulkanSDK && \
      tar xvf /VulkanSDK.tar.gz
 
-RUN	cd VulkanSDK/1.2.162.0
-ENV	VULKAN_SDK="/VulkanSDK/1.2.162.0/x86_64${VULKAN_SDK}"
+RUN	cd VulkanSDK/1.2.162.1
+ENV	VULKAN_SDK="/VulkanSDK/1.2.162.1/x86_64${VULKAN_SDK}"
 ENV	LD_LIBRARY_PATH="${VULKAN_SDK}/lib:${LD_LIBRARY_PATH}"
 ENV	VK_LAYER_PATH="${VULKAN_SDK}/etc/explicit_layer.d:${VK_LAYER_PATH}"
 ENV	PATH="${VULKAN_SDK}/bin:${PATH}"
