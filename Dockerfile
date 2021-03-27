@@ -11,7 +11,7 @@ RUN apt install -y python
 RUN apt install -y wget
 RUN apt install -y cmake
 RUN apt install -y gcc g++
-RUN apt install -y clang-tools-10
+RUN apt install -y clang-tools-11
 
 RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.2.170.0/linux/vulkansdk-linux-x86_64-1.2.170.0.tar.gz?u=true && \
      mkdir VulkanSDK && \
@@ -27,7 +27,7 @@ ENV	PATH="${VULKAN_SDK}/bin:${PATH}"
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
-    RUST_VERSION=1.50.0
+    RUST_VERSION=1.51.0
 
 RUN set -eux; \
     apt-get install -y --no-install-recommends \
@@ -56,5 +56,5 @@ RUN set -eux; \
         ; \
     rm -rf /var/lib/apt/lists/*;
 
-RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-10 100
-RUN update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-10 100
+RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-11 100
+RUN update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-11 100
