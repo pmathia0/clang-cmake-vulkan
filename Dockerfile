@@ -13,13 +13,13 @@ RUN apt install -y cmake
 RUN apt install -y gcc g++
 RUN apt install -y clang-tools-11
 
-RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.2.176.1/linux/vulkansdk-linux-x86_64-1.2.176.1.tar.gz?u=true && \
+RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.2.189.0/linux/vulkansdk-linux-x86_64-1.2.189.0.tar.gz?u=true && \
      mkdir VulkanSDK && \
      cd VulkanSDK && \
      tar xvf /VulkanSDK.tar.gz
 
-RUN	cd VulkanSDK/1.2.176.1
-ENV	VULKAN_SDK="/VulkanSDK/1.2.176.1/x86_64${VULKAN_SDK}"
+RUN	cd VulkanSDK/1.2.189.0
+ENV	VULKAN_SDK="/VulkanSDK/1.2.189.0/x86_64${VULKAN_SDK}"
 ENV	LD_LIBRARY_PATH="${VULKAN_SDK}/lib:${LD_LIBRARY_PATH}"
 ENV	VK_LAYER_PATH="${VULKAN_SDK}/etc/explicit_layer.d:${VK_LAYER_PATH}"
 ENV	PATH="${VULKAN_SDK}/bin:${PATH}"
@@ -27,7 +27,7 @@ ENV	PATH="${VULKAN_SDK}/bin:${PATH}"
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
-    RUST_VERSION=1.52.1
+    RUST_VERSION=1.55.0
 
 RUN set -eux; \
     apt-get install -y --no-install-recommends \
@@ -42,7 +42,7 @@ RUN set -eux; \
         i386) rustArch='i686-unknown-linux-gnu';; \
         *) echo >&2 "unsupported architecture: ${dpkgArch}"; exit 1 ;; \
     esac; \
-    url="https://static.rust-lang.org/rustup/archive/1.24.2/${rustArch}/rustup-init"; \
+    url="https://static.rust-lang.org/rustup/archive/1.24.3/${rustArch}/rustup-init"; \
     wget "$url"; \
     chmod +x rustup-init; \
     ./rustup-init -y --no-modify-path --profile minimal --default-toolchain $RUST_VERSION --default-host ${rustArch}; \
